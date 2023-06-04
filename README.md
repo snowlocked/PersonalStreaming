@@ -15,6 +15,9 @@ cd ${YourPath} && cp .env.example .env
 # 修改你的环境变量
 vi .env
 
+# 如果需要修改python版本则需要再改改yml文件
+# vi docker-compose.yml
+
 docker-compose up -d
 ```
 

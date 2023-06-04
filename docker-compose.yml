@@ -1,4 +1,4 @@
-version: ${PYTHON_VERSION}
+version: "3.6"
 services:
   jellyfin:
     image: jellyfin/jellyfin
