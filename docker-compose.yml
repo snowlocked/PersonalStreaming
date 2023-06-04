@@ -1,0 +1,39 @@
+version: ${PYTHON_VERSION}
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    network_mode: 'host'
+    volumes:
+      - ./config:/config
+      - ./cache:/cache
+      - ${JELLYFIN_MEDIA}:/media
+    # - /path/to/media2:/media2:ro
+    restart: 'unless-stopped'
+    # Optional - may be necessary for docker healthcheck to pass if running in host network mode
+  ab:
+    image: estrellaxd/auto_bangumi:latest
+    container_name: ab
+    ports:
+      - 7892:7892
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./ab/config:/app/config #不要动
+      - ./ab/data:/app/data #不要动
+    restart: unless-stopped
+  qb:
+    image: johngong/qbittorrent:latest
+    container_name: qb
+    ports:
+      - 8989:8989 #若需修改，两者应与下方的 QB_WEBUI_PORT 完全一致
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - QB_EE_BIN=true
+      - QB_WEBUI_PORT=8989 #与 ports 一致
+    volumes:
+      - ./qb:/config #不要动
+      - ${JELLYFIN_MEDIA}${QB_DOWNLOAD}:/Downloads #自行修改，注意大小写
+    restart: unless-stopped
