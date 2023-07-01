@@ -8,6 +8,8 @@ services:
       - ./config:/config
       - ./cache:/cache
       - ${JELLYFIN_MEDIA}:/media
+      - ./fonts:/usr/share/fonts/truetype/dejavu
+      - ./fonts:/fonts
     # - /path/to/media2:/media2:ro
     restart: 'unless-stopped'
     # Optional - may be necessary for docker healthcheck to pass if running in host network mode
@@ -37,3 +39,4 @@ services:
       - ./qb:/config #不要动
       - ${JELLYFIN_MEDIA}${QB_DOWNLOAD}:/Downloads #自行修改，注意大小写
     restart: unless-stopped
+
