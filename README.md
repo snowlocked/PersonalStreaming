@@ -45,7 +45,7 @@ docker-compose up -d
 ![img](https://github.com/snowlocked/PersonalStreaming/assets/19562649/4caed101-a877-436a-ae26-2752206011f8)
 ![img](https://github.com/snowlocked/PersonalStreaming/assets/19562649/b1c4b9ba-199f-47a8-a068-00ed7677c270)
 记下你的token
-5. 访问 ab，使用默认账号密码登录，进入设置，订阅配置，把你的token复制进来即可，其他配置可根据你实际需求配置
+5. 访问 ab，使用默认账号密码登录，进入设置，订阅配置，把你的token复制进来即可，其他配置可根据你实际需求配置（例如下载路径等）
 ![img](https://github.com/snowlocked/PersonalStreaming/assets/19562649/7f1ab22b-7c83-4a6c-bf84-ae7ed0b834ea)
 6. 访问qb查看下载进度。
 7. 下载完后到你的jellyfin即可观看
